@@ -1,0 +1,49 @@
+.contact_container {
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form_group{
+  margin-bottom: 20px;
+}
+
+.page_title {
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.contact_form {
+  width: 400px;
+}
+
+.email,
+.objet,
+.message {
+  width: 100%;
+  max-width: 500px;
+  height: 25px;
+  padding: 15px 10px;
+  /* margin-bottom: 15px; */
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.message {
+  height: 100px;
+  resize: none;
+  overflow-y: auto;
+}
+
+.contact_btn {
+  width: 100%;
+  border: solid 2px #fff;
+  padding: 15px;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--darkBlue);
+  margin-top: 20px;
+}

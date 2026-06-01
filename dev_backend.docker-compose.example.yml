@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    environment:
+      - NODE_ENV=development
+      - WATCHPACK_POLLING=true
+      - CHOKIDAR_USEPOLLING=true
+      #
+      - PORT=9000
+      - JWT_SECRET_KEY=xxxxxxxxxxxx
+      - EXPIRATION_TOKEN=259200000 # 3j
+      - CLOUD_NAME=xxxxxxxxxxxx
+      - CLOUD_KEY=xxxxxxxxxxxx
+      - CLOUD_SECRET_KEY=xxxxxxxxxxxx
+      - STRIPE_SECRET_KEY =xxxxxxxxxxxx
+      - SPARKPOST_SECRET_KEY=xxxxxxxxxxxx
+    ports:
+      - "9000:9000"
+    networks:
+      - backend
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+networks:
+  backend:
+    driver: bridge

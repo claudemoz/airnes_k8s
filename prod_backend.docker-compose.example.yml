@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  api:
+    image: registry.gitlab.com/claudetsiangana/app_ecommerce_bachelor_3/backend:latest
+    environment:
+      - NODE_ENV=production
+      - PORT=9000
+      - JWT_SECRET_KEY=xxxxxxxxxxxx
+      - EXPIRATION_TOKEN=259200000 # 3j
+      - CLOUD_NAME=xxxxxxxxxxxx
+      - CLOUD_KEY=xxxxxxxxxxxx
+      - CLOUD_SECRET_KEY=xxxxxxxxxxxx
+      - STRIPE_SECRET_KEY=xxxxxxxxxxxx
+      - SPARKPOST_SECRET_KEY=xxxxxxxxxxxx
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    restart: unless-stopped
+  nginx:
+    build: .
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - api
+    restart: always

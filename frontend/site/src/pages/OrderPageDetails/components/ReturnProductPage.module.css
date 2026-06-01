@@ -1,0 +1,138 @@
+.return-products-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+   /* Centrer le cadre sur la page */
+  margin-top: 30px;
+  overflow-y: auto;
+  max-height: 600px; 
+}
+
+.return-conditions {
+  margin-bottom: 20px;
+}
+
+.return-section {
+  margin-bottom: 20px;
+}
+
+.return-section h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.return-section ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.return-section ul li {
+  margin-bottom: 5px;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.button-container button {
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #2c3e50;
+  color: white;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-container button:hover {
+  background-color: #0a1028;
+}
+
+.button-container button:last-child {
+  margin-left: 10px;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-item img {
+  height: 100px; /* Taille des images en petit */
+  margin-bottom: 10px;
+  object-fit: cover; /* Pour que les images gardent leurs proportions */
+}
+
+.image_returned_section{
+  padding: 20px;
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ddd;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-item img {
+  height: 100px; 
+  margin-bottom: 10px;
+  object-fit: cover; 
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 40px;
+}
+
+.step-item {
+  text-align: center;
+}
+
+.step-item .icon {
+  font-size: 100px;
+  margin-bottom: 10px;
+}
+
+.package_icon{
+  color : orange
+}
+
+.inspection_icon{
+  color : rgb(167, 49, 53)
+}
+.service_icon{
+  color : rgb(49, 190, 129)
+}
+.cash_icon{
+  color : rgb(30, 32, 95)
+}

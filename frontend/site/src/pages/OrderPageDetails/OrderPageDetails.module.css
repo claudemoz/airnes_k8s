@@ -1,0 +1,164 @@
+.container {
+  padding: 20px;
+}
+
+.container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.orderDetailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Deux colonnes dans le grid container */
+  gap: 20px;
+}
+
+.orderItemsSection, .orderSummarySection {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.orderItemsSection h2, .orderSummarySection h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.orderItem {
+  display: grid; 
+  grid-template-columns: auto 1fr auto; 
+  align-items: center; 
+  gap: 50px; 
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.itemImage {
+  width: 100%;
+  position: relative;
+  height: auto; /* Hauteur automatique pour conserver les proportions */
+  max-width: 150px; /* Limite la largeur maximale de l'image */
+}
+
+.itemDetails p:first-child {
+  font-weight: bold;
+  font-size: 20px; 
+}
+
+.itemDetails p:not(:first-child) {
+  font-size: 13px; 
+}
+
+.itemPriceQty {
+  text-align: right;
+}
+
+.price_item {
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.qtity_item {
+  border : 2px solid black;
+  text-align: center;
+  padding: 10px;
+}
+
+.icon_item {
+  padding: 10px;
+  font-size: 35px;
+}
+
+.icon_item .icon {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.returnButton{
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: rgb(24, 170, 70);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background-color: #86e8c4;
+}
+
+.returnButton {
+  background-color: #208234; 
+   
+}
+
+.returnButtonDisabled{
+
+  background-color: #ccc; /* Couleur de fond grise pour indiquer que le bouton est désactivé */
+  color: #666; /* Couleur de texte grise */
+  cursor: not-allowed; 
+
+}
+
+.cancelled {
+  background-color: #f2f2f2; /* Couleur de fond grise */
+}
+
+/* Style de la bannière "Cancelled" */
+.cancelledBanner {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  background-color: #d9534f; 
+  color: white; 
+  padding: 5px;
+  text-align: center; 
+  border-radius: 0 0 5px 5px; 
+  z-index: 1; 
+}
+
+
+
+
+.selectedIcon {
+  color: rgb(24, 170, 70); /* Couleur rouge pour l'icône sélectionnée */
+}
+
+.orderSummary {
+  margin-bottom: 20px;
+}
+
+.orderDelivery, .orderBilling, .orderPayment {
+  margin-bottom: 20px;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background: #ccc;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .orderDetailsGrid {
+    grid-template-columns: 1fr; /* Pour une seule colonne sur les écrans étroits */
+  }
+}
+
+.cancelButton {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #cb4a4a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background-color: #ff1a1a;
+}
+

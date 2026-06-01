@@ -1,0 +1,684 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentation api airneis",
+    "version": "1.0.0",
+    "description": "API REST pour l'application ecommerce Airneis."
+  },
+  "servers": [
+        {
+            "url": "http://localhost:9000/api/v1",
+            "description": "development"
+        }, 
+
+        {
+            "url": "https://api.airneis.tsiang.fr/api/v1",
+            "description": "production"
+        }
+    ],
+    "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+    "tags": [
+        {
+            "name": "auth",
+            "description": "Methodes permettant la gestion de l'authentification"
+        },
+        {
+            "name": "user",
+            "description": "Methodes permettant la gestion des utilisateurs"
+        },
+        {
+            "name": "product",
+            "description": "Methodes permettant la gestion des produits"
+        },
+        {
+            "name": "category",
+            "description": "Methodes permettant la gestion des categories"
+        },
+        {
+            "name": "material",
+            "description": "Methodes permettant la gestion des materiaux"
+        },
+        {
+            "name": "order",
+            "description": "Methodes permettant la gestion des orders"
+        },
+        {
+            "name": "contact",
+            "description": "Methodes permettant la gestion des contact"
+        }
+    ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "/auth/register",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/verify-email": {
+      "post": {
+        "summary": "/auth/verify-email",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/re-verify-email": {
+      "post": {
+        "summary": "/auth/re-verify-email",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "/auth/login",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/authenticate": {
+      "post": {
+        "summary": "/auth/authenticate",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/logout": {
+      "post": {
+        "summary": "/auth/logout",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/user": {
+      "get": {
+        "summary": "/auth/user",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "summary": "/auth/forgot-password",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/reset-password": {
+      "post": {
+        "summary": "/auth/reset-password",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/update-user/{userId}": {
+      "put": {
+        "summary": "/auth/update-user/{userId}",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/auth/update-password": {
+      "post": {
+        "summary": "/auth/update-password",
+        "responses": {},
+        "tags": ["auth"]
+      }
+    },
+    "/user/get-customers": {
+      "get": {
+        "summary": "/user/get-customers",
+        "responses": {},
+        "tags": ["user"]
+      }
+    },
+    "/user/get-users-admin": {
+      "get": {
+        "summary": "/user/get-users-admin",
+        "responses": {},
+        "tags": ["user"]
+      }
+    },
+    "/user/get-user/{userId}": {
+      "get": {
+        "summary": "/user/get-user/{userId}",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["user"]
+      }
+    },
+    "/user/delete-user/{userId}": {
+      "delete": {
+        "summary": "/user/delete-user/{userId}",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["user"]
+      }
+    },
+    "/user/delete-many-users/": {
+      "post": {
+        "summary": "/user/delete-many-users/",
+        "responses": {},
+       "tags": ["user"]
+      }
+    },
+    "/user/update-user/{userId}": {
+      "put": {
+        "summary": "/user/update-user/{userId}",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["user"]
+      }
+    },
+    "/user/add-user": {
+      "post": {
+        "summary": "/user/add-user",
+        "responses": {},
+        "tags": ["user"]
+      }
+    },
+    "/category/add-category": {
+      "post": {
+        "summary": "/category/add-category",
+        "responses": {},
+        "tags": ["category"]
+      }
+    },
+    "/category/update-category/{categoryId}": {
+      "put": {
+        "summary": "/category/update-category/{categoryId}",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["category"]
+      }
+    },
+    "/category/delete-category/{categoryId}": {
+      "delete": {
+        "summary": "/category/delete-category/{categoryId}",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["category"]
+      }
+    },
+    "/category/delete-many-categories/": {
+      "post": {
+        "summary": "/category/delete-many-categories/",
+        "responses": {},
+        "tags": ["category"]
+      }
+    },
+    "/category/get-category/{categoryId}": {
+      "get": {
+        "summary": "/category/get-category/{categoryId}",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["category"]
+      }
+    },
+    "/category/get-categories": {
+      "get": {
+        "summary": "/category/get-categories",
+        "responses": {},
+        "tags": ["category"]
+      }
+    },
+    "/product/add-product": {
+      "post": {
+        "summary": "/product/add-product",
+        "responses": {},
+        "tags": ["product"]
+      }
+    },
+    "/product/update-product/{productId}": {
+      "put": {
+        "summary": "/product/update-product/{productId}",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["product"]
+      }
+    },
+    "/product/delete-product/{productId}": {
+      "delete": {
+        "summary": "/product/delete-product/{productId}",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["product"]
+      }
+    },
+    "/product/delete-many-products/": {
+      "post": {
+        "summary": "/product/delete-many-products/",
+        "responses": {},
+        "tags": ["product"]
+      }
+    },
+    "/product/get-product/{productId}": {
+      "get": {
+        "summary": "/product/get-product/{productId}",
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["product"]
+      }
+    },
+    "/product/get-products": {
+      "get": {
+        "summary": "/product/get-products",
+        "responses": {},
+        "tags": ["product"]
+      }
+    },
+    "/product/get-product-by-category/{categoryId}": {
+      "get": {
+        "summary": "/product/get-product-by-category/{categoryId}",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["product"]
+      }
+    },
+    "/material/get-materials": {
+      "get": {
+        "summary": "/material/get-materials",
+        "responses": {},
+        "tags": ["material"]
+      }
+    },
+    "/material/get-material/{materialId}": {
+      "get": {
+        "summary": "/material/get-material/{materialId}",
+        "parameters": [
+          {
+            "name": "materialId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["material"]
+      }
+    },
+    "/material/create-material": {
+      "post": {
+        "summary": "/material/create-material",
+        "responses": {},
+        "tags": ["material"]
+      }
+    },
+    "/material/update-material/{materialId}": {
+      "put": {
+        "summary": "/material/update-material/{materialId}",
+        "parameters": [
+          {
+            "name": "materialId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+       "tags": ["material"]
+      }
+    },
+    "/material/delete-material/{materialId}": {
+      "delete": {
+        "summary": "/material/delete-material/{materialId}",
+        "parameters": [
+          {
+            "name": "materialId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["material"]
+      }
+    },
+    "/material/delete-many-materials/": {
+      "post": {
+        "summary": "/material/delete-many-materials/",
+        "responses": {},
+       "tags": ["material"]
+      }
+    },
+    "/order/create-order": {
+      "post": {
+        "summary": "/order/create-order",
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/order/create-checkout-session": {
+      "post": {
+        "summary": "/order/create-checkout-session",
+        "responses": {},
+        "tags": ["order"]
+      }
+    },
+    "/order/create-payment-intent": {
+      "post": {
+        "summary": "/order/create-payment-intent",
+        "responses": {},
+       "tags": ["order"]
+      }
+    },
+    "/order/webhook": {
+      "post": {
+        "summary": "/order/webhook",
+        "responses": {},
+        "tags": ["order"]
+      }
+    },
+    "/order/get-order/{orderId}": {
+      "get": {
+        "summary": "/order/get-order/{orderId}",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+       "tags": ["order"]
+      }
+    },
+    "/order/get-user-orders": {
+      "get": {
+        "summary": "/order/get-user-orders",
+        "responses": {},
+        "tags": ["order"]
+      }
+    },
+    "/order/get-orders": {
+      "get": {
+        "summary": "/order/get-orders",
+        "responses": {},
+        "tags": ["order"]
+      }
+    },
+    "/order/update-order/{orderId}": {
+      "put": {
+        "summary": "/order/update-order/{orderId}",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["order"]
+      }
+    },
+    "/order/delete-order/{orderId}": {
+      "delete": {
+        "summary": "/order/delete-order/{orderId}",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["order"]
+      }
+    },
+    "/order/delete-many-orders/": {
+      "post": {
+        "summary": "/order/delete-many-orders/",
+        "responses": {},
+        "tags": ["order"]
+      }
+    },
+    "/contact/delete-contact/{contactId}": {
+      "delete": {
+        "summary": "/contact/delete-contact/{contactId}",
+        "parameters": [
+          {
+            "name": "contactId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["contact"]
+      }
+    },
+    "/contact/delete-many-contacts": {
+      "post": {
+        "summary": "/contact/delete-many-contacts",
+        "responses": {},
+        "tags": ["contact"]
+      }
+    },
+    "/contact/get-contact/{contactId}": {
+      "get": {
+        "summary": "/contact/get-contact/{contactId}",
+        "parameters": [
+          {
+            "name": "contactId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": ["contact"]
+      }
+    },
+    "/contact/get-contacts": {
+      "get": {
+        "summary": "/contact/get-contacts",
+        "responses": {},
+        "tags": ["contact"]
+      }
+    },
+    "/contact/add-contact": {
+      "post": {
+        "summary": "/contact/add-contact",
+        "responses": {},
+        "tags": ["contact"]
+      }
+    },
+    "/payment_intent/get-payment-user/{userId}": {
+      "get": {
+        "summary": "/payment_intent/get-payment-user/{userId}",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/payment_intent/create-payment": {
+      "post": {
+        "summary": "/payment_intent/create-payment",
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/payment_intent/update-payment/{paymentId}": {
+      "put": {
+        "summary": "/payment_intent/update-payment/{paymentId}",
+        "parameters": [
+          {
+            "name": "paymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/payment_intent/delete-payment/{paymentId}": {
+      "delete": {
+        "summary": "/payment_intent/delete-payment/{paymentId}",
+        "parameters": [
+          {
+            "name": "paymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {},
+        "tags": []
+      }
+    },
+    "/payment_intent/add-method-payment-to-user": {
+      "post": {
+        "summary": "/payment_intent/add-method-payment-to-user",
+        "responses": {},
+        "tags": []
+      }
+    }
+  }
+}
