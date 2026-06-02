@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service-site
+  labels:
+    app.kubernetes.io/name: airnes-site
+    app.kubernetes.io/component: frontend-site
+    app.kubernetes.io/part-of: ecommerce-airnes-site
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: airnes-site
+    app.kubernetes.io/component: frontend-site
+    app.kubernetes.io/part-of: ecommerce-airnes-site
+  ports:
+    - port: 80
+      targetPort: 80

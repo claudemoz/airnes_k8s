@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment-admin
+  labels:
+    app.kubernetes.io/name: airnes-admin
+    app.kubernetes.io/component: frontend-admin
+    app.kubernetes.io/part-of: ecommerce-airnes-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: airnes-admin
+      app.kubernetes.io/component: frontend-admin
+      app.kubernetes.io/part-of: ecommerce-airnes-admin
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: airnes-admin
+        app.kubernetes.io/component: frontend-admin
+        app.kubernetes.io/part-of: ecommerce-airnes-admin
+    spec:
+      containers:
+        - name: frontend-admin
+          image: tsiang/airnes_k8s_admin:latest
+          ports:
+            - containerPort: 80

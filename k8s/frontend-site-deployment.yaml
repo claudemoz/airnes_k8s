@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment-site
+  labels:
+    app.kubernetes.io/name: airnes-site
+    app.kubernetes.io/component: frontend-site
+    app.kubernetes.io/part-of: ecommerce-airnes-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: airnes-site
+      app.kubernetes.io/component: frontend-site
+      app.kubernetes.io/part-of: ecommerce-airnes-site
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: airnes-site
+        app.kubernetes.io/component: frontend-site
+        app.kubernetes.io/part-of: ecommerce-airnes-site
+    spec:
+      containers:
+        - name: frontend-site
+          image: tsiang/airnes_k8s_site:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nginx-config-site-volume
+              mountPath: /etc/nginx/conf.d/
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "250m"
+      volumes:
+        - name: nginx-config-site-volume
+          configMap:
+            name: nginx-config-site
+            items:
+              - key: nginx.conf
+                path: default.conf
+      imagePullSecrets:
+        - name: docker-hub-secret

@@ -1,2 +1,3 @@
 prod_backend.docker-compose.yml
 dev_backend.docker-compose.yml
+k8s/secret.yaml
