@@ -4,31 +4,115 @@ metadata:
   name: api-deployment
   labels:
     app.kubernetes.io/name: airnes-api
-    app.kubernetes.io/component: api
-    app.kubernetes.io/part-of: ecommerce-airnes-site
+    app.kubernetes.io/component: server
+    app.kubernetes.io/part-of: airnes-ecommerce-api
 spec:
   replicas: 1
   selector:
     matchLabels:
       app.kubernetes.io/name: airnes-api
-      app.kubernetes.io/component: api
-      app.kubernetes.io/part-of: ecommerce-airnes-site
+      app.kubernetes.io/component: server
+      app.kubernetes.io/part-of: airnes-ecommerce-api
   template:
     metadata:
       labels:
         app.kubernetes.io/name: airnes-api
-        app.kubernetes.io/component: api
-        app.kubernetes.io/part-of: ecommerce-airnes-site
+        app.kubernetes.io/component: server
+        app.kubernetes.io/part-of: airnes-ecommerce-api
     spec:
+      imagePullSecrets:
+        - name: docker-hub-secret
       containers:
         - name: api
           image: tsiang/airnes_k8s_api:latest
           ports:
             - containerPort: 9000
+          env:
+            - name: PORT
+              value: "9000"
+            - name: NODE_ENV
+              value: "production"
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: DB_NAME
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: DB_PASSWORD
+            - name: MAILTRAP_USER
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: MAILTRAP_USER
+            - name: MAILTRAP_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: MAILTRAP_PASS
+            - name: BASE_URL_API
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: BASE_URL_API
+            - name: JWT_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: JWT_SECRET_KEY
+            - name: EXPIRATION_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: EXPIRATION_TOKEN
+            - name: CLOUD_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: CLOUD_NAME
+            - name: CLOUD_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: CLOUD_KEY
+            - name: CLOUD_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: CLOUD_SECRET_KEY
+            - name: STRIPE_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: STRIPE_SECRET_KEY
+            - name: SPARKPOST_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: api-secrets
+                  key: SPARKPOST_SECRET_KEY
           resources:
             requests:
-              memory: "128Mi"
+              memory: "64Mi"
               cpu: "250m"
             limits:
-              memory: "256Mi"
+              memory: "128Mi"
               cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: 9000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /api/v1/health
+              port: 9000
+            initialDelaySeconds: 5
+            periodSeconds: 10

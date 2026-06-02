@@ -6,6 +6,7 @@ const { checkApiKey } = require("@middlewares");
 //============= Doc Api ==============
 // router.use("/documentation", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 //============= Resources ==============
+router.get("/health", require("@controllers/health.controllers").healthCheck);
 router.use("/auth", checkApiKey, require("@routes/auth.routes"));
 router.use("/user", checkApiKey, require("@routes/user.routes"));
 router.use("/category", checkApiKey, require("@routes/category.routes"));
