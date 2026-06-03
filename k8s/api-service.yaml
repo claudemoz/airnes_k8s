@@ -15,3 +15,23 @@ spec:
   ports:
     - port: 9000
       targetPort: 9000
+
+---
+apiVersion: networking.gke.io/v1
+kind: HealthCheckPolicy
+metadata:
+  name: api-service-healthcheck
+  namespace: default
+  labels:
+    app.kubernetes.io/part-of: airnes-ecommerce-api
+spec:
+  default:
+    config:
+      type: HTTP
+      httpHealthCheck:
+        portSpecification: USE_SERVING_PORT
+        requestPath: /api/v1/health
+  targetRef:
+    group: ""
+    kind: Service
+    name: api-service

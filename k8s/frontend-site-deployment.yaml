@@ -25,6 +25,9 @@ spec:
           image: tsiang/airnes_k8s_site:latest
           ports:
             - containerPort: 80
+          env:
+            - name: NODE_ENV
+              value: "production"
           volumeMounts:
             - name: nginx-config-site-volume
               mountPath: /etc/nginx/conf.d/
